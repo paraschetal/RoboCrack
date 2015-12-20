@@ -1,5 +1,6 @@
 # RoboCrack
->A script that ckecks whether your password is weak or not. It was inspired by the password cracker used by Elliot Alderson in the Mr.Robot tv-series.
+>A script that ckecks whether your password is weak or not. It was inspired by the social-engineering based password cracker used by Elliot Alderson in the Mr.Robot tv-series.
+
 ## Usage
 ```$ python robot.py```
 ## TODOs:
