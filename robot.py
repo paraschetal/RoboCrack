@@ -67,7 +67,6 @@ def passcrack():
 	final_list.append('passw0rd')
 	final_list.append('p4ssword')
 
-
 	stuff=final_list	
 	count=0
 	total=npermutations(stuff)
