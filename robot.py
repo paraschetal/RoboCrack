@@ -16,7 +16,8 @@ def passcrack():
 	username=raw_input("username:")
 	password=raw_input("password:")
 	i=username
-	print "\nEnter as much information as possible(as much as a good social engineer might be able to gather), like birthday, nickname etc. Enter 'end' to when done."
+	print "\nEnter as much information as possible(as much as a good social engineer might be able to gather).Enter 'end' when done."
+	print '\nFor example: Nickname, Birthdate etc.'
 	while i!='end':
 		list1.append(i)
 		i=raw_input()
@@ -62,12 +63,10 @@ def passcrack():
 	final_list.append('1234567')			
 	final_list.append('12345678')	
 	final_list.append('123456789')					
-		
-				
-	print "\n\n-------------******Final List******----------------"
-	for word in final_list:
-		print word	
-	print "-------------******Final List******----------------"
+	final_list.append('password')
+	final_list.append('passw0rd')
+	final_list.append('p4ssword')
+
 
 	stuff=final_list	
 	count=0
