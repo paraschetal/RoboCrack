@@ -59,26 +59,33 @@ def passcrack():
 		elif final_list[i][0].islower():
 			if final_list[i][0].upper() not in final_list:
 				final_list.append(final_list[i][0].upper())
-	final_list.append('123456')
-	final_list.append('1234567')			
-	final_list.append('12345678')	
-	final_list.append('123456789')					
-	final_list.append('password')
-	final_list.append('passw0rd')
-	final_list.append('p4ssword')
+
 
 	stuff=final_list	
 	count=0
 	total=npermutations(stuff)
 	for L in range(0, len(stuff)+1):
-		for subset in itertools.permutations(stuff, L):
-			count+=1
-			sys.stdout.write("Checking: %i of %i    \r" % (count,total) )
-			if ''.join(subset)==password:
-				print '\nFOUND!!!. It is a weak password'
-				print 'Password is: '+''.join(subset)+'\n'
-				return
-			sys.stdout.flush()	
+		for subset in itertools.combinations(stuff, L):
+			length_of_subset=len(''.join(subset))
+
+			if length_of_subset<4 or length_of_subset>20:
+				count+=npermutations(subset)
+				continue
+			for permutation_of_combination in itertools.permutations(subset,len(subset)):
+				count+=1
+				sys.stdout.write("Checking %s :%i of %i    \r" % (''.join(permutation_of_combination),count,total) )
+				if ''.join(permutation_of_combination) == password:
+					print ("\nThe Force is not strong with this one!")
+					exit(0)
+	# for L in range(0, len(stuff)+1):
+	# 	for subset in itertools.permutations(stuff, L):
+	# 		count+=1
+	# 		sys.stdout.write("Checking: %i of %i    \r" % (count,total) )
+	# 		if ''.join(subset)==password:
+	# 			print '\nFOUND!!!. It is a weak password'
+	# 			print 'Password is: '+''.join(subset)+'\n'
+	# 			return
+	# 		sys.stdout.flush()	
 
 passcrack()	    			
 
