@@ -1,6 +1,4 @@
-import itertools
-import operator
-import sys
+import itertools, operator, sys, time
 from collections import Counter
 from math import factorial
 
@@ -60,7 +58,8 @@ def passcrack():
 			if final_list[i][0].upper() not in final_list:
 				final_list.append(final_list[i][0].upper())
 
-
+	common_passwords=['aaa', 'academia', 'anything', 'coffee', 'computer', 'cookie', 'oracle', 'password','secret', 'super', 'unknown', 'passw0rd', 'p4ssw0rd','1234567','12345678','123456789','alpine']
+	start_time=time.time()
 	stuff=final_list	
 	count=0
 	total=npermutations(stuff)
@@ -75,7 +74,7 @@ def passcrack():
 				count+=1
 				sys.stdout.write("Checking %s :%i of %i    \r" % (''.join(permutation_of_combination),count,total) )
 				if ''.join(permutation_of_combination) == password:
-					print ("\nThe Force is not strong with this one!")
+					print ("\nThe Force is not strong with this one!\nTime taken: %s"%(time.time()-start_time))
 					exit(0)
 	# for L in range(0, len(stuff)+1):
 	# 	for subset in itertools.permutations(stuff, L):
